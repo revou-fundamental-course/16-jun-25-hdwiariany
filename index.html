@@ -1,13 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kalkulator Segitiga</title>
+    <link rel="icon" href="assets/mathtriangle.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    
 </head>
 
 <body>
+  <header class="main-header">
+    <div class="logo-title">
+      <img src="assets/header.png" alt="Ikon Kalkulator Segitiga" class="header-icon">
+      <h1>Kalkulator Segitiga</h1>
+      </div>
+    <p>Hitung semua jenis yang berkaitan dengan segitiga secara cepat dan mudah!</p>
+  </header>
+  
+  <main>
     
+    <!-- Hitung Luas -->
+    <section class="card">
+      <h2>Luas Segitiga</h2>
+      <p class="rumus">Rumus: <br>
+        <strong>L = ½ × alas × tinggi</strong></p>
+      <img src="assets/luassegitiga.png" alt="Segitiga" class="triangle-img">
+      <form id="formLuas">
+        <input type="number" id="alas" placeholder="Alas (cm)" required />
+        <input type="number" id="tinggi" placeholder="Tinggi (cm)" required />
+        <button type="submit">Hitung</button>
+        <button type="button" onclick="resetForm('luas')">Reset</button>
+      </form>
+      <div id="hasilLuas"></div>
+    </section>
+
+    <!-- Hitung Tinggi -->
+    <section class="card">
+      <h2>Hitung Tinggi</h2>
+      <p class="rumus">Rumus: <br>
+        <strong>T = (2 × luas) / alas</strong></p>
+      <img src="assets/tinggisegitiga.png" alt="Segitiga" class="triangle-img">
+      <form id="formTinggi">
+        <input type="number" id="luasTinggi" placeholder="Luas (cm²)" required />
+        <input type="number" id="alasTinggi" placeholder="Alas (cm)" required />
+        <button type="submit">Hitung</button>
+        <button type="button" onclick="resetForm('tinggi')">Reset</button>
+      </form>
+      <div id="hasilTinggi"></div>
+    </section>
+
+    <!-- Hitung Alas -->
+    <section class="card">
+      <h2>Hitung Alas</h2>
+      <p class="rumus">Rumus: <br>
+        <strong>A = (2 × luas) / tinggi</strong></p>
+      <img src="assets/alassegitiga.png" alt="Segitiga" class="triangle-img">
+      <form id="formAlas">
+        <input type="number" id="luasAlas" placeholder="Luas (cm²)" required />
+        <input type="number" id="tinggiAlas" placeholder="Tinggi (cm)" required />
+        <button type="submit">Hitung</button>
+        <button type="button" onclick="resetForm('alas')">Reset</button>
+      </form>
+      <div id="hasilAlas"></div>
+    </section>
+
+    <!-- Hitung Sisi Miring (siku-siku) -->
+    <section class="card">
+      <h2>Hitung Sisi Miring (Siku-siku)</h2>
+      <p class="rumus">Rumus: <br>
+        <strong>c = √(alas² + tinggi²)</strong></p>
+      <img src="assets/segitigasikusiku.png" alt="Segitiga Sama Siku" class="triangle-img">
+      <form id="formSisiMiring">
+        <input type="number" id="alasMiring" placeholder="Alas (cm)" required />
+        <input type="number" id="tinggiMiring" placeholder="Tinggi (cm)" required />
+        <button type="submit">Hitung</button>
+        <button type="button" onclick="resetForm('miring')">Reset</button>
+      </form>
+      <div id="hasilMiring"></div>
+    </section>
+  
+    <!-- Hitung Keliling -->
+    <section class="card">
+      <h2>Keliling Segitiga</h2>
+      <p class="rumus">Rumus: <br>
+        <strong>K = sisi A + sisi B + sisi C</strong></p>
+      <img src="assets/kelilingsegitiga.png" alt="Segitiga" class="triangle-img">
+      <form id="formKeliling">
+        <input type="number" id="sisiA" placeholder="Sisi A (cm)" required />
+        <input type="number" id="sisiB" placeholder="Sisi B (cm)" required />
+        <input type="number" id="sisiC" placeholder="Sisi C (cm)" required />
+        <button type="submit">Hitung</button>
+        <button type="button" onclick="resetForm('keliling')">Reset</button>
+      </form>
+      <div id="hasilKeliling"></div>
+    </section>
+    
+    <!-- Hitung Sisi Miring (segitiga sama kaki) -->
+    <section class="card">
+      <h2>Hitung Sisi Miring (Segitiga Sama Kaki)</h2>
+      <p class="rumus">Rumus: <br>
+        <strong>sisi miring = (keliling - alas) / 2</strong></p>
+      <img src="assets/segitigasamakaki.png" alt="Segitiga Sama Kaki" class="triangle-img">
+      <form id="formMiringSamaKaki">
+        <input type="number" id="kelilingSamaKaki" placeholder="Keliling (cm)" required />
+        <input type="number" id="alasSamaKaki" placeholder="Alas (cm)" required />
+        <button type="submit">Hitung</button>
+        <button type="button" onclick="resetForm('miringSamaKaki')">Reset</button>
+      </form>
+      <div id="hasilMiringSamaKaki"></div>
+    </section>
+    
+    <!-- Hitung Segitiga Sembarangan -->
+    <section class="card">
+      <h2>Luas Segitiga Sembarang</h2>
+      <p class="rumus">Rumus: <br>
+        <strong>L = √(s(s - a)(s - b)(s - c))</strong>,
+        <br>dengan <em>s = (a + b + c) / 2</em></p>
+      <img src="assets/segitigasembarang.png" alt="Segitiga Sembarang" class="triangle-img">
+      <form id="formSembarang">
+        <input type="number" id="ssA" placeholder="Sisi A (cm)" required />
+        <input type="number" id="ssB" placeholder="Sisi B (cm)" required />
+        <input type="number" id="ssC" placeholder="Sisi C (cm)" required />
+        <button type="submit">Hitung</button>
+        <button type="button" onclick="resetForm('sembarang')">Reset</button>
+      </form>
+      <div id="hasilSembarang"></div>
+    </section>
+    
+    <!-- Hitung Sudut segitiga -->
+    <section class="card">
+      <h2>Hitung Sudut Segitiga</h2>
+      <p class="rumus">Rumus: <br>
+        <strong>
+          cos A = (b² + c² - a²) / 2bc<br>
+          cos B = (a² + c² - b²) / 2ac<br>
+          cos C = (a² + b² - c²) / 2ab
+        </strong>
+      </p>
+      <img src="assets/sudutsegitiga.png" alt="Sudut Segitiga" class="triangle-img">
+      <form id="formSudut">
+        <input type="number" id="sudutA" placeholder="Sisi A (cm)" required />
+        <input type="number" id="sudutB" placeholder="Sisi B (cm)" required />
+        <input type="number" id="sudutC" placeholder="Sisi C (cm)" required />
+        <button type="submit">Hitung</button>
+        <button type="button" onclick="resetForm('sudut')">Reset</button>
+      </form>
+      <div id="hasilSudut"></div>
+    </section>
+  </main>
+
+  <!-- Toast, untuk memunculkan notifikasi alert/popup -->
+  <div id="toast" class="toast"></div>
+
+  <script src="js/script.js"></script>
 </body>
 </html>

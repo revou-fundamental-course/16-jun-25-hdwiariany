@@ -1,0 +1,194 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  background-color: #368a75;
+  color: white;
+  padding: 20px;
+}
+
+.header-icon {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.card img {
+  width: 100px;
+  margin: 10px 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button[type="submit"] {
+  background-color: #397e6d;
+  color: white;
+}
+
+button[type="button"] {
+  background-color: rgb(201, 105, 76);
+  color: white;
+}
+
+#luasHasil, #kelilingHasil {
+  margin-top: 10px;
+  font-weight: bold;
+  word-wrap: break-word;
+  font-size: 16px;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  main {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    align-items: flex-start;
+  }
+}
+
+/* Animasi tombol */
+button {
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* Validasi notifikasi */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header style */
+.main-header {
+  text-align: center;
+  padding: 20px;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.header-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.main-header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.main-header p {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #def8f4;
+}
+
+/* Responsive tweak */
+@media (max-width: 480px) {
+  .header-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .main-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .main-header p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Notifikasi Toast Style*/
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff4d4d;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, top 0.3s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  pointer-events: auto;
+  top: 40px;
+}
