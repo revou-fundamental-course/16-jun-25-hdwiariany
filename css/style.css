@@ -1,3 +1,4 @@
+/* Body Style */
 body {
   font-family: Arial, sans-serif;
   background: #f9f9f9;
@@ -6,6 +7,7 @@ body {
   text-align: center;
 }
 
+/* Header Style */
 header {
   background-color: #368a75;
   color: white;
@@ -26,6 +28,7 @@ main {
   padding: 20px;
 }
 
+/* Desain Kolom Perhitung */
 .card {
   background: white;
   border: 1px solid #ddd;
